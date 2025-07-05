@@ -296,7 +296,7 @@ const TokenEconomicsSection: React.FC = () => {
           <div className="bg-gray-900 p-4 rounded">
             <h4 className="font-bold mb-2">Mathematical Guarantee:</h4>
             <div className="font-mono text-sm text-purple-400">
-              lim(n→∞) Balance(n) = 0, but for any finite n: Balance(n) > 0
+              lim(n→∞) Balance(n) = 0, but for any finite n: Balance(n) {'>'} 0
             </div>
             <div className="text-sm text-gray-300 mt-2">
               Therefore: ∃ monthly releases for all finite time periods

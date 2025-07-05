@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, FileText, ExternalLink, Download, ChevronRight, ArrowLeft } from 'lucide-react';
+import { BookOpen, FileText, ExternalLink, Download, ChevronRight, ArrowLeft, Clock, CheckCircle, AlertTriangle, Wallet, Zap } from 'lucide-react';
 
 const DocumentationSection: React.FC = () => {
   const [selectedDoc, setSelectedDoc] = useState<string | null>(null);
@@ -19,7 +19,7 @@ const DocumentationSection: React.FC = () => {
           id: 'quick-start',
           name: 'Quick Start Guide', 
           description: 'Begin using AEC in 5 minutes',
-          content: null
+          content: 'quick-start'
         },
         { 
           id: 'token-economics',
@@ -96,6 +96,511 @@ const DocumentationSection: React.FC = () => {
       ]
     }
   ];
+
+  const QuickStartGuide = () => (
+    <div className="max-w-4xl mx-auto">
+      <div className="mb-8">
+        <button
+          onClick={() => setSelectedDoc(null)}
+          className="flex items-center text-gray-400 hover:text-white transition-colors mb-6"
+        >
+          <ArrowLeft size={16} className="mr-2" />
+          Back to Documentation
+        </button>
+        <h1 className="text-4xl font-bold mb-4">Quick Start Guide</h1>
+        <div className="flex items-center text-gray-400 mb-4">
+          <Clock size={16} className="mr-2" />
+          <span>Begin using AEC in 5 minutes</span>
+        </div>
+        <p className="text-gray-300">Get up and running with AetherCycle Protocol quickly and safely.</p>
+      </div>
+
+      <div className="space-y-12 text-gray-300 leading-relaxed">
+        {/* Prerequisites */}
+        <section>
+          <div className="flex items-center mb-6">
+            <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mr-3">1</div>
+            <h2 className="text-2xl font-bold text-white">Prerequisites (1 minute)</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-blue-400">What You Need:</h3>
+              <ul className="space-y-2">
+                <li className="flex items-center">
+                  <CheckCircle size={16} className="text-green-400 mr-2 flex-shrink-0" />
+                  <span><strong>Wallet:</strong> MetaMask, Coinbase Wallet, or any Web3 wallet</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle size={16} className="text-green-400 mr-2 flex-shrink-0" />
+                  <span><strong>Network:</strong> Base network configured</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle size={16} className="text-green-400 mr-2 flex-shrink-0" />
+                  <span><strong>Funds:</strong> USDC for Fair Launch participation (optional)</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle size={16} className="text-green-400 mr-2 flex-shrink-0" />
+                  <span><strong>Browser:</strong> Chrome, Firefox, or Brave recommended</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-purple-400">Base Network Setup:</h3>
+              <p className="mb-3">If Base isn't in your wallet yet:</p>
+              <ol className="space-y-2 text-sm">
+                <li>1. Visit <span className="text-blue-400 font-mono">bridge.base.org</span></li>
+                <li>2. Click "Add Base Network"</li>
+                <li>3. Confirm in your wallet</li>
+              </ol>
+              
+              <div className="mt-4 p-3 bg-gray-800 rounded text-xs font-mono">
+                <div><strong>Name:</strong> Base</div>
+                <div><strong>RPC:</strong> https://mainnet.base.org</div>
+                <div><strong>Chain ID:</strong> 8453</div>
+                <div><strong>Currency:</strong> ETH</div>
+                <div><strong>Explorer:</strong> https://basescan.org</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Step 1: Get AEC Tokens */}
+        <section>
+          <div className="flex items-center mb-6">
+            <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white font-bold mr-3">2</div>
+            <h2 className="text-2xl font-bold text-white">Get AEC Tokens (2 minutes)</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-6">
+            <div className="border border-green-600 bg-green-900/20 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-green-400 flex items-center">
+                <Zap size={20} className="mr-2" />
+                Option A: Fair Launch (Recommended)
+              </h3>
+              <div className="space-y-3">
+                <div><strong>When:</strong> During 48-hour Fair Launch period</div>
+                <div><strong>What:</strong> Contribute USDC, get proportional AEC allocation</div>
+              </div>
+              
+              <div className="mt-4 p-4 bg-gray-800 rounded">
+                <h4 className="font-bold mb-2">Steps:</h4>
+                <ol className="space-y-1 text-sm">
+                  <li>1. Visit: <span className="text-blue-400 font-mono">app.aethercycle.xyz</span></li>
+                  <li>2. Connect wallet to Base network</li>
+                  <li>3. Enter USDC amount you want to contribute</li>
+                  <li>4. Confirm transaction and wait for completion</li>
+                  <li>5. Claim tokens after Fair Launch ends</li>
+                </ol>
+              </div>
+              
+              <div className="mt-4 p-3 bg-blue-900/30 border border-blue-600 rounded">
+                <div className="text-sm font-mono">
+                  <strong>Formula:</strong> Your AEC = (Your USDC ÷ Total USDC) × Fair Launch Allocation
+                </div>
+              </div>
+            </div>
+
+            <div className="border border-yellow-600 bg-yellow-900/20 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-yellow-400 flex items-center">
+                <ExternalLink size={20} className="mr-2" />
+                Option B: DEX Trading (Post-Launch)
+              </h3>
+              <div className="space-y-3">
+                <div><strong>When:</strong> After Fair Launch completes</div>
+                <div><strong>Where:</strong> Uniswap V2 AEC/USDC pair</div>
+              </div>
+              
+              <div className="mt-4 p-4 bg-gray-800 rounded">
+                <h4 className="font-bold mb-2">Steps:</h4>
+                <ol className="space-y-1 text-sm">
+                  <li>1. Visit: <span className="text-blue-400 font-mono">app.uniswap.org</span></li>
+                  <li>2. Connect wallet to Base network</li>
+                  <li>3. Select: AEC/USDC trading pair</li>
+                  <li>4. Set slippage: 3-5% (due to 2% tax)</li>
+                  <li>5. Swap USDC for AEC</li>
+                </ol>
+              </div>
+              
+              <div className="mt-4 p-3 bg-yellow-900/30 border border-yellow-600 rounded">
+                <div className="text-sm">
+                  <AlertTriangle size={14} className="inline mr-1" />
+                  <strong>Note:</strong> 2% tax applies to DEX purchases
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Step 2: Choose Strategy */}
+        <section>
+          <div className="flex items-center mb-6">
+            <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold mr-3">3</div>
+            <h2 className="text-2xl font-bold text-white">Choose Your Strategy (1 minute)</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="border border-gray-700 bg-gray-900 p-4 rounded-lg">
+              <h3 className="font-bold text-blue-400 mb-2 flex items-center">
+                🚀 For Quick Participation
+              </h3>
+              <div className="text-sm space-y-1">
+                <div><strong>Goal:</strong> Get involved immediately</div>
+                <div><strong>Action:</strong> Hold AEC tokens, participate in governance</div>
+                <div><strong>Benefit:</strong> Exposure to protocol growth, voting rights</div>
+              </div>
+            </div>
+
+            <div className="border border-gray-700 bg-gray-900 p-4 rounded-lg">
+              <h3 className="font-bold text-green-400 mb-2 flex items-center">
+                💰 For Yield Earning
+              </h3>
+              <div className="text-sm space-y-1">
+                <div><strong>Goal:</strong> Earn passive income</div>
+                <div><strong>Action:</strong> Stake AEC tokens with lock periods</div>
+                <div><strong>Benefit:</strong> 1.1x to 1.6x reward multipliers</div>
+              </div>
+            </div>
+
+            <div className="border border-gray-700 bg-gray-900 p-4 rounded-lg">
+              <h3 className="font-bold text-cyan-400 mb-2 flex items-center">
+                🌊 For Liquidity Providers
+              </h3>
+              <div className="text-sm space-y-1">
+                <div><strong>Goal:</strong> Maximum rewards</div>
+                <div><strong>Action:</strong> Provide AEC/USDC liquidity, stake LP tokens</div>
+                <div><strong>Benefit:</strong> 60% of all protocol rewards</div>
+              </div>
+            </div>
+
+            <div className="border border-gray-700 bg-gray-900 p-4 rounded-lg">
+              <h3 className="font-bold text-purple-400 mb-2 flex items-center">
+                🎨 For NFT Collectors
+              </h3>
+              <div className="text-sm space-y-1">
+                <div><strong>Goal:</strong> Unique utility</div>
+                <div><strong>Action:</strong> Mint Aetheria NFTs, stake for rewards</div>
+                <div><strong>Benefit:</strong> Continuous yield + collectible value</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Step 3: Start Earning */}
+        <section>
+          <div className="flex items-center mb-6">
+            <div className="w-8 h-8 bg-yellow-600 rounded-full flex items-center justify-center text-white font-bold mr-3">4</div>
+            <h2 className="text-2xl font-bold text-white">Start Earning (1 minute)</h2>
+          </div>
+
+          <div className="space-y-6">
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-green-400">Token Staking (Easiest)</h3>
+              <ol className="space-y-2">
+                <li>1. Visit: <span className="text-blue-400 font-mono">app.aethercycle.xyz/stake</span></li>
+                <li>2. Connect wallet with AEC tokens</li>
+                <li>3. Choose lock period:
+                  <ul className="ml-6 mt-2 space-y-1 text-sm">
+                    <li>• 30 days = 1.1x multiplier</li>
+                    <li>• 90 days = 1.3x multiplier</li>
+                    <li>• 180 days = 1.6x multiplier</li>
+                  </ul>
+                </li>
+                <li>4. Stake tokens and start earning immediately</li>
+              </ol>
+            </div>
+
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-cyan-400">LP Staking (Highest Rewards)</h3>
+              <ol className="space-y-2">
+                <li>1. Add liquidity on Uniswap V2 (AEC/USDC pair)</li>
+                <li>2. Receive LP tokens from Uniswap</li>
+                <li>3. Visit: <span className="text-blue-400 font-mono">app.aethercycle.xyz/stake-lp</span></li>
+                <li>4. Stake LP tokens with preferred lock period</li>
+                <li>5. Earn 60% of all protocol rewards</li>
+              </ol>
+            </div>
+
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-purple-400">NFT Staking (Unique Utility)</h3>
+              <ol className="space-y-2">
+                <li>1. Visit: <span className="text-blue-400 font-mono">app.aethercycle.xyz/nft</span></li>
+                <li>2. Mint Aetheria NFT using AEC tokens</li>
+                <li>3. Stake NFT in staking contract</li>
+                <li>4. Earn rewards based on NFT rarity</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        {/* Step 4: Monitor & Optimize */}
+        <section>
+          <div className="flex items-center mb-6">
+            <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold mr-3">5</div>
+            <h2 className="text-2xl font-bold text-white">Monitor & Optimize (Ongoing)</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-blue-400">Track Your Performance:</h3>
+              <ul className="space-y-2">
+                <li>• <strong>Dashboard:</strong> <span className="text-blue-400 font-mono">app.aethercycle.xyz/dashboard</span></li>
+                <li>• <strong>Rewards:</strong> Check pending and claimed rewards</li>
+                <li>• <strong>APY Calculator:</strong> Estimate returns based on lock periods</li>
+                <li>• <strong>Protocol Stats:</strong> Monitor TVL, burn rate, reward distribution</li>
+              </ul>
+            </div>
+
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-green-400">Stay Informed:</h3>
+              <ul className="space-y-2">
+                <li>• <strong>Discord:</strong> Real-time community discussions</li>
+                <li>• <strong>Twitter:</strong> Protocol updates and announcements</li>
+                <li>• <strong>GitHub:</strong> Technical updates and code reviews</li>
+              </ul>
+            </div>
+
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg md:col-span-2">
+              <h3 className="text-lg font-bold mb-4 text-purple-400">Optimize Strategy:</h3>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div>
+                  <h4 className="font-bold mb-2">Compound rewards:</h4>
+                  <p className="text-sm">Reinvest earned AEC for higher returns</p>
+                </div>
+                <div>
+                  <h4 className="font-bold mb-2">Extend locks:</h4>
+                  <p className="text-sm">Longer periods = higher multipliers</p>
+                </div>
+                <div>
+                  <h4 className="font-bold mb-2">Diversify:</h4>
+                  <p className="text-sm">Combine token staking + LP staking + NFT staking</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Reference */}
+        <section className="border border-gray-700 bg-gray-900 p-8 rounded-lg">
+          <h2 className="text-2xl font-bold mb-6 text-white text-center">Quick Reference</h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-yellow-400">Tax Structure:</h3>
+              <ul className="space-y-2">
+                <li>• <strong>Wallet-to-wallet:</strong> 0% tax</li>
+                <li>• <strong>Official DEX:</strong> 2-2.5% tax</li>
+                <li>• <strong>Unofficial contracts:</strong> 10-12.5% tax</li>
+              </ul>
+
+              <h3 className="text-lg font-bold mb-4 mt-6 text-green-400">Reward Sources:</h3>
+              <ul className="space-y-2">
+                <li>• <strong>Transaction taxes:</strong> Continuous revenue stream</li>
+                <li>• <strong>Perpetual Endowment:</strong> 0.5% monthly releases (infinite)</li>
+                <li>• <strong>LP yields:</strong> Growing protocol-owned liquidity</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-blue-400">Key Numbers:</h3>
+              <ul className="space-y-2">
+                <li>• <strong>Total Supply:</strong> 888,888,888 AEC (fixed)</li>
+                <li>• <strong>Founder Allocation:</strong> 1% (5-year vesting)</li>
+                <li>• <strong>Community Control:</strong> 99% of supply</li>
+                <li>• <strong>Sustainability:</strong> Mathematical guarantee via endowment</li>
+              </ul>
+
+              <h3 className="text-lg font-bold mb-4 mt-6 text-purple-400">Important Addresses:</h3>
+              <div className="space-y-2 text-sm font-mono">
+                <div>• <strong>AEC Token:</strong> [Contract Address]</div>
+                <div>• <strong>PerpetualEngine:</strong> [Contract Address]</div>
+                <div>• <strong>Staking Contracts:</strong> [Contract Addresses]</div>
+                <div>• <strong>Uniswap V2 Pair:</strong> [Pair Address]</div>
+              </div>
+              <p className="text-xs text-gray-400 mt-2">Contract addresses will be published at launch</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Safety Checklist */}
+        <section className="border border-red-600 bg-red-900/20 p-8 rounded-lg">
+          <h2 className="text-2xl font-bold mb-6 text-red-400 text-center flex items-center justify-center">
+            <AlertTriangle size={24} className="mr-2" />
+            Safety Checklist
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-green-400">Before You Start:</h3>
+              <ul className="space-y-2">
+                <li className="flex items-center">
+                  <CheckCircle size={16} className="text-green-400 mr-2 flex-shrink-0" />
+                  <span>Verify website URL: Only use aethercycle.xyz</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle size={16} className="text-green-400 mr-2 flex-shrink-0" />
+                  <span>Check contract addresses: Match official documentation</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle size={16} className="text-green-400 mr-2 flex-shrink-0" />
+                  <span>Start small: Test with minimal amounts first</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle size={16} className="text-green-400 mr-2 flex-shrink-0" />
+                  <span>Understand risks: Read disclaimer and risk assessment</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle size={16} className="text-green-400 mr-2 flex-shrink-0" />
+                  <span>Secure wallet: Use hardware wallet for large amounts</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-red-400">Red Flags to Avoid:</h3>
+              <ul className="space-y-2">
+                <li className="flex items-center">
+                  <AlertTriangle size={16} className="text-red-400 mr-2 flex-shrink-0" />
+                  <span>Fake websites: Always verify official links</span>
+                </li>
+                <li className="flex items-center">
+                  <AlertTriangle size={16} className="text-red-400 mr-2 flex-shrink-0" />
+                  <span>Social media scams: No official team DMs</span>
+                </li>
+                <li className="flex items-center">
+                  <AlertTriangle size={16} className="text-red-400 mr-2 flex-shrink-0" />
+                  <span>Unofficial tokens: Only use verified contract address</span>
+                </li>
+                <li className="flex items-center">
+                  <AlertTriangle size={16} className="text-red-400 mr-2 flex-shrink-0" />
+                  <span>Too-good-to-be-true APYs: Sustainable yields only</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Common Issues */}
+        <section>
+          <h2 className="text-2xl font-bold mb-6 text-white">Common Issues & Solutions</h2>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-red-400">Transaction Failed:</h3>
+              <ul className="space-y-2 text-sm">
+                <li>• <strong>Check gas:</strong> Ensure sufficient ETH for Base network fees</li>
+                <li>• <strong>Increase slippage:</strong> Try 5% for DEX trades</li>
+                <li>• <strong>Network congestion:</strong> Wait and retry during lower traffic</li>
+              </ul>
+            </div>
+
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-yellow-400">Tokens Not Showing:</h3>
+              <ul className="space-y-2 text-sm">
+                <li>• <strong>Add token:</strong> Import AEC contract address to wallet</li>
+                <li>• <strong>Refresh wallet:</strong> Sometimes requires manual refresh</li>
+                <li>• <strong>Check network:</strong> Ensure you're on Base network</li>
+              </ul>
+            </div>
+
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-blue-400">Staking Issues:</h3>
+              <ul className="space-y-2 text-sm">
+                <li>• <strong>Approve first:</strong> Most staking requires token approval step</li>
+                <li>• <strong>Minimum amounts:</strong> Check minimum staking requirements</li>
+                <li>• <strong>Lock periods:</strong> Understand unlock dates before staking</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Next Steps */}
+        <section>
+          <h2 className="text-2xl font-bold mb-6 text-white">Next Steps</h2>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-blue-400">Learn More:</h3>
+              <ul className="space-y-2">
+                <li>📖 <strong>Token Economics:</strong> Understand mathematical sustainability model</li>
+                <li>🔒 <strong>Security Model:</strong> Learn about immutable architecture</li>
+                <li>📊 <strong>Risk Assessment:</strong> Comprehensive risk analysis</li>
+                <li>📋 <strong>FAQ:</strong> Answers to 30+ common questions</li>
+              </ul>
+            </div>
+
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg">
+              <h3 className="text-lg font-bold mb-4 text-green-400">Get Involved:</h3>
+              <ul className="space-y-2">
+                <li>💬 <strong>Join Discord:</strong> Real-time community support</li>
+                <li>🐦 <strong>Follow Twitter:</strong> Protocol updates and news</li>
+                <li>💻 <strong>GitHub:</strong> Review smart contract code</li>
+                <li>🗳️ <strong>Governance:</strong> Participate in founder accountability votes</li>
+              </ul>
+            </div>
+
+            <div className="border border-gray-700 bg-gray-900 p-6 rounded-lg md:col-span-2">
+              <h3 className="text-lg font-bold mb-4 text-purple-400">Advanced Features:</h3>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div>⚡ <strong>PerpetualEngine:</strong> Learn how to trigger reward cycles</div>
+                <div>🎮 <strong>AECGambit:</strong> Try provably fair on-chain gambling</div>
+                <div>🎨 <strong>Aetheria NFTs:</strong> Explore the limited NFT collection</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Support */}
+        <section className="border border-gray-700 bg-gray-900 p-8 rounded-lg">
+          <h2 className="text-2xl font-bold mb-6 text-white text-center">Support</h2>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-blue-400">Community Help:</h3>
+              <ul className="space-y-2">
+                <li>• <strong>Discord:</strong> #support channel for real-time help</li>
+                <li>• <strong>GitHub:</strong> Technical documentation and code review</li>
+                <li>• <strong>FAQ:</strong> Comprehensive answers to common questions</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-bold mb-4 text-green-400">Official Contact:</h3>
+              <ul className="space-y-2">
+                <li>• <strong>General:</strong> <span className="text-blue-400 font-mono">aethercycle@gmail.com</span></li>
+                <li>• <strong>Security:</strong> Report vulnerabilities for bug bounty rewards</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Conclusion */}
+        <section className="border border-green-600 bg-green-900/20 p-8 rounded-lg text-center">
+          <h2 className="text-3xl font-bold mb-4 text-green-400">🎉 Congratulations!</h2>
+          <p className="text-lg mb-4">You're now ready to participate in the world's first truly autonomous DeFi protocol.</p>
+          <p className="text-gray-300 mb-6">
+            <strong>Remember:</strong> AetherCycle is experimental software. Only invest what you can afford to lose, and always do your own research.
+          </p>
+          <a
+            href="https://app.aethercycle.xyz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center bg-white text-black px-8 py-3 font-mono text-sm hover:bg-gray-200 transition-colors"
+          >
+            <Zap size={16} className="mr-2" />
+            Start your AetherCycle journey
+          </a>
+        </section>
+
+        {/* Footer */}
+        <div className="border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+          <p className="mb-2"><strong>Quick Start Guide - Last Updated:</strong> July 4, 2025</p>
+          <p className="text-lg font-bold text-white">AetherCycle Protocol - Autonomous Finance</p>
+        </div>
+      </div>
+    </div>
+  );
 
   const ProtocolOverview = () => (
     <div className="max-w-4xl mx-auto">
@@ -614,6 +1119,16 @@ const DocumentationSection: React.FC = () => {
       <section className="py-24 bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ProtocolOverview />
+        </div>
+      </section>
+    );
+  }
+
+  if (selectedDoc === 'quick-start') {
+    return (
+      <section className="py-24 bg-black text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <QuickStartGuide />
         </div>
       </section>
     );

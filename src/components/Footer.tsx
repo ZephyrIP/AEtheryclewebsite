@@ -11,6 +11,7 @@ const Footer: React.FC<FooterProps> = ({ onSectionChange }) => {
       title: 'Protocol',
       links: [
         { name: 'Documentation', section: 'docs' },
+        { name: 'Token Economics', section: 'tokenomics' },
         { name: 'Whitepaper', section: 'whitepaper' },
         { name: 'FAQ', section: 'faq' },
         { name: 'Risk Assessment', section: 'risk' }

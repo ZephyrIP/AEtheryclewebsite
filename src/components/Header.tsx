@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, FileText, Shield, Users, HelpCircle, BookOpen } from 'lucide-react';
+import { Menu, X, FileText, Shield, Users, HelpCircle, BookOpen, Calculator } from 'lucide-react';
 
 interface HeaderProps {
   activeSection: string;
@@ -12,6 +12,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onSectionChange }) => {
   const navItems = [
     { id: 'home', label: 'Home', icon: null },
     { id: 'docs', label: 'Documentation', icon: BookOpen },
+    { id: 'tokenomics', label: 'Token Economics', icon: Calculator },
     { id: 'faq', label: 'FAQ', icon: HelpCircle },
     { id: 'whitepaper', label: 'Whitepaper', icon: FileText },
     { id: 'community', label: 'Community', icon: Users },

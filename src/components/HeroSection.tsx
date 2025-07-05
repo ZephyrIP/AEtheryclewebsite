@@ -10,11 +10,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ onSectionChange }) => {
     <section className="min-h-screen flex items-center justify-center bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="space-y-8">
-          <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight">
-            AUTONOMOUS
-            <br />
-            DEFI
-          </h1>
+          {/* Logo and Brand */}
+          <div className="flex flex-col items-center mb-8">
+            <img 
+              src="/Aethercycle_AEC_Logo.png" 
+              alt="AetherCycle Logo" 
+              className="w-24 h-24 md:w-32 md:h-32 mb-6 opacity-90 hover:opacity-100 transition-opacity"
+            />
+            <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight">
+              AUTONOMOUS
+              <br />
+              DEFI
+            </h1>
+          </div>
           
           <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
             Self-sustaining protocol. No roadmap. No promises.

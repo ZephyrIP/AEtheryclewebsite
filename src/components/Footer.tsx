@@ -48,7 +48,14 @@ const Footer: React.FC<FooterProps> = ({ onSectionChange }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <h3 className="text-2xl font-bold tracking-wider mb-4">AEC</h3>
+            <div className="flex items-center mb-4">
+              <img 
+                src="/Aethercycle_AEC_Logo.png" 
+                alt="AEC Logo" 
+                className="w-8 h-8 mr-3"
+              />
+              <h3 className="text-2xl font-bold tracking-wider">AEC</h3>
+            </div>
             <p className="text-sm text-gray-400 mb-6">
               Autonomous DeFi Protocol
               <br />

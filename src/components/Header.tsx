@@ -25,9 +25,16 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onSectionChange }) => {
           <div className="flex items-center">
             <button
               onClick={() => onSectionChange('home')}
-              className="text-2xl font-bold tracking-wider text-white hover:text-gray-300 transition-colors"
+              className="flex items-center hover:opacity-80 transition-opacity"
             >
-              AEC
+              <img 
+                src="/Aethercycle_AEC_Logo.png" 
+                alt="AEC Logo" 
+                className="w-8 h-8 mr-3"
+              />
+              <span className="text-2xl font-bold tracking-wider text-white">
+                AEC
+              </span>
             </button>
             <span className="ml-4 text-sm text-gray-400 hidden sm:block">
               BASE NETWORK • IMMUTABLE

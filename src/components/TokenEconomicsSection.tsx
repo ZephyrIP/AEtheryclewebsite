@@ -115,6 +115,15 @@ const TokenEconomicsSection: React.FC = () => {
 
   const renderOverview = () => (
     <div className="space-y-8">
+      {/* Logo and Title */}
+      <div className="text-center mb-8">
+        <img 
+          src="/Aethercycle_AEC_Logo.png" 
+          alt="AetherCycle Logo" 
+          className="w-16 h-16 mx-auto mb-4 opacity-80"
+        />
+      </div>
+
       {/* Key Metrics */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div className="bg-gray-800 p-6 rounded-lg text-center">

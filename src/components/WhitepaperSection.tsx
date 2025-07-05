@@ -5,29 +5,38 @@ const WhitepaperSection: React.FC = () => {
   const documents = [
     {
       title: 'AEC Whitepaper v2.0',
-      description: 'Complete protocol specification and mathematical model',
+      description: 'Mathematical proofs and autonomous protocol mechanisms',
       pages: 47,
       size: '2.3 MB',
       version: 'v2.0',
-      date: '2024-01-15',
+      date: '2025-01-15',
       featured: true
     },
     {
-      title: 'Technical Implementation Guide',
-      description: 'Detailed technical architecture and smart contract specifications',
+      title: 'Smart Contract Architecture',
+      description: 'Immutable smart contract specifications and technical implementation',
       pages: 32,
       size: '1.8 MB',
       version: 'v1.5',
-      date: '2024-01-10',
+      date: '2025-01-10',
       featured: false
     },
     {
-      title: 'Economic Analysis Report',
-      description: 'Comprehensive analysis of sustainability mathematics and tokenomics',
+      title: 'Mathematical Sustainability Proofs',
+      description: 'Mathematical models proving perpetual operation and economic sustainability',
       pages: 28,
       size: '1.5 MB',
       version: 'v1.0',
-      date: '2024-01-05',
+      date: '2025-01-05',
+      featured: false
+    },
+    {
+      title: 'Fair Launch & Tokenomics Guide',
+      description: 'Fair launch mechanism and transparent token distribution model',
+      pages: 16,
+      size: '0.8 MB',
+      version: 'v1.0',
+      date: '2025-01-20',
       featured: false
     },
     {
@@ -36,7 +45,7 @@ const WhitepaperSection: React.FC = () => {
       pages: 24,
       size: '1.2 MB',
       version: 'v1.0',
-      date: '2023-12-20',
+      date: '2024-12-20',
       featured: false
     }
   ];
@@ -128,11 +137,11 @@ const WhitepaperSection: React.FC = () => {
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-400">Total Pages:</span>
-                  <span>131</span>
+                  <span>147</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Last Updated:</span>
-                  <span>Jan 15, 2024</span>
+                  <span>Jan 20, 2025</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">File Format:</span>

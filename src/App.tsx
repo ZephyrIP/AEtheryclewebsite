@@ -7,6 +7,7 @@ import CommunitySection from './components/CommunitySection';
 import FAQSection from './components/FAQSection';
 import WhitepaperSection from './components/WhitepaperSection';
 import PrivacySection from './components/PrivacySection';
+import TokenEconomicsSection from './components/TokenEconomicsSection';
 import Footer from './components/Footer';
 
 function App() {
@@ -18,6 +19,8 @@ function App() {
         return <HeroSection onSectionChange={setActiveSection} />;
       case 'docs':
         return <DocumentationSection />;
+      case 'tokenomics':
+        return <TokenEconomicsSection />;
       case 'risk':
         return <RiskSection />;
       case 'community':
